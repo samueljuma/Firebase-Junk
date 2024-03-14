@@ -9,6 +9,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.database
+import com.sjcreatives.firebaseapp1.data.User
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,22 +23,26 @@ class MainActivity : AppCompatActivity() {
         //Real Time database reference
         database = Firebase.database.reference
 
-        //write Data to Firebase
-        database.child("users").setValue("samueljuma")
+        //Writing custom data to firebase
+        val user1 = User(0,"samueljuma", "Samuel", "Juma")
+        database.child("Users").child(user1.userName).setValue(user1)
 
-        //Read Data from Firebase
-        val postListener = object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val user = snapshot.value
-                tv.text = user.toString()
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-
-        }
-        database.child("users").addValueEventListener(postListener)
+//        //write Data to Firebase
+//        database.child("users").setValue("samueljuma")
+//
+//        //Read Data from Firebase
+//        val postListener = object : ValueEventListener{
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                val user = snapshot.value
+//                tv.text = user.toString()
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//                TODO("Not yet implemented")
+//            }
+//
+//        }
+//        database.child("users").addValueEventListener(postListener)
 
 
     }
