@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="NameStyle">
+        <item name="android:fontFamily">@font/baloo_thambi</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
